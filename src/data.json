@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "name": "Antiespumante",
+        "kg": 15,
+        "price": 15000,
+        "description":
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "stock": 25,
+        "category": "Aditivos Líquidos"
+      },
+      {
+        "id": 2,
+        "name": "Regulador de pH",
+        "kg": 17,
+        "price": 11000,
+        "description":
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "stock": 32,
+        "category": "Aditivos Líquidos"
+      },
+      {
+        "id": 3,
+        "name": "Pastillas de Cloro",
+        "price": 2500,
+        "kg": 1,
+        "description":
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "stock": 5000,
+        "category": "Aditivos Sólidos"
+      },
+      {
+        "id": 4,
+        "name": "Alimento para bacterias",
+        "price": 18000,
+        "kg": 20,
+        "description":
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "stock": 32,
+        "category": "Aditivos Sólidos"
+      },
+      {
+        "id": 5,
+        "name": "Bomba N5500",
+        "price": 45000,
+        "Model": "Pumps 621",
+        "description":
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "stock": 5,
+        "category": "Bombas y Soplantes"
+      },
+      {
+        "id": 6,
+        "name": "Bomba N10500",
+        "price": 85000,
+        "Model": "Pumps 1021",
+        "description":
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "stock": 3,
+        "category": "Bombas y Soplantes"
+      },
+      {
+        "id": 7,
+        "name": "Soplante S1000",
+        "price": 30000,
+        "Model": "SSB 331000",
+        "description":
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "stock": 10,
+        "category": "Bombas y Soplantes"
+      },
+      {
+        "id": 8,
+        "name": "Soplante S3000",
+        "price": 50000,
+        "Model": "SSB 531000",
+        "description":
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "stock": 4,
+        "category": "Bombas y Soplantes"
+      }
+
+]
