@@ -1,4 +1,4 @@
-/*import {
+import {
     FormControl,
     FormLabel,
     Input,
@@ -17,11 +17,12 @@
     GridItem,
     Flex,
   } from "@chakra-ui/react";
-  import { useState } from "react";
-  
+  import { useState, useContext } from "react";
+  import { CartContext } from "../context/ShoppingCartContext"
+  import SendOrder from "./SendOrder"
   
   const Cart = () => {
-    const [cart, setCart] = useState(useState);
+    const [cart, setCart] = useContext(CartContext);
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
   
@@ -97,4 +98,4 @@
   };
   
   export default Cart;
-  */
+  

@@ -3,6 +3,7 @@ import NavBar from './components/NavBar'
 import ItemListContainer from './containers/itemListContainer'
 import ItemDetailContainer from './containers/ItemDetailContainer'
 import Home from './components/Home'
+import { ShoppingCartProvider} from "./context/ShoppingCartContext"
 
 
 
@@ -10,6 +11,7 @@ function App()
 {
   return (
    
+    <ShoppingCartProvider>
      <BrowserRouter>
      
      <NavBar/>
@@ -23,7 +25,7 @@ function App()
   </Routes>
   </BrowserRouter>
 
-  
+  </ShoppingCartProvider>
   );    
 
 }
