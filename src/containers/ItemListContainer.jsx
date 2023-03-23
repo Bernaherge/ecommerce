@@ -1,28 +1,31 @@
-import { useState, useEffect } from 'react'
-import ItemList from '../components/ItemList'
-import Data from '../data.json'
-import { useParams } from 'react-router-dom'
-import {Heading, Center} from '@chakra-ui/react'
+import { useState, useEffect } from "react";
+import ItemList from "../components/ItemList";
+import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const ItemListContainer = () => {
-  const {category} = useParams();
+  const [productos, setProductos] = useState([]);
+  const { category } = useParams();
 
+  useEffect(() => {
+    const db = getFirestore();
+    const productosCollection = collection(db, "productosplanta");
+    getDocs(productosCollection).then((querySnapshot) => {
+      const productos = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setProductos(productos);
+    });
+  }, []);
 
+  const catFilter = productos.filter((producto) => producto.category === category);
 
-  const catFilter = Data.filter((producto) => producto.category === category);
   return (
     <div>
-      <Center bg="#D6EAF8" h="100px" color="black">
-        <Heading as="h2" size="2xl">
-          Todos los Productos
-        </Heading>
-      </Center>
-      {category ? <ItemList producto={catFilter} /> : <ItemList producto={Data} />}
+      {category ? <ItemList bikes={catFilter} /> : <ItemList productos={productos} />}
     </div>
-
   );
-
-  
 };
 
-export default ItemListContainer
+export default ItemListContainer;

@@ -1,28 +1,22 @@
 import ItemDetail from "../components/ItemDetail";
 import { useState, useEffect } from "react";
-import Data from "../data.json";
-import { useParams } from "react-router-dom";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+
 const ItemDetailContainer = () => {
-   const { id } = useParams();
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const db = getFirestore();
+    const productosCollection = collection(db, "productosplanta");
+    getDocs(productosCollection).then((querySnapshot) => {
+      const productos = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setData(productos);
+    });
+  }, []);
 
-   
-
-    useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(Data);
-        const data = await response.json();
-        setProducto(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
-  }, []); 
-
-
-
-  return <ItemDetail producto={Data} />;
+  return <ItemDetail productos={data} />;
 };
 
 export default ItemDetailContainer;

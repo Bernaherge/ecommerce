@@ -14,11 +14,29 @@ import {
   /*importar imagen*/
   import { useParams } from "react-router-dom";
   import ItemCount from "../components/ItemCount";
+
+  import { useEffect, useState } from "react";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
   
-  const ItemDetail = ({ producto }) => {
+  const ItemDetail = () => {
     const { id } = useParams();
-    // console.log(id);
+   
+    const [producto, setProducto] = useState([]);
+
+    useEffect(() => {
+      const db = getFirestore();
   
+      const productoRef = doc(db, "productosplanta", `${id}`);
+  
+      getDoc(productoRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          setProducto(snapshot.data());
+        } else {
+          console.log("No se encuentra el documento");
+        }
+      });
+    }, []);
+
     const productoFilter = producto.filter((producto) => producto.id == id);
   
     return (

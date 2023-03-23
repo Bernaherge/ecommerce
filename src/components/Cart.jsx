@@ -1,4 +1,85 @@
+
 import {
+  FormControl,
+  FormLabel,
+  Input,
+  FormHelperText,
+  Button,
+  Container,
+  Box,
+  Textarea,
+  Center,
+  Heading,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Text,
+  GridItem,
+  Flex,
+} from "@chakra-ui/react";
+import { useState, useContext } from "react";
+import { ShoppingCartContext } from "../context/ShoppingCartContext";
+import SendOrder from "./SendOrder";
+
+const Cart = ({ product }) => {
+  const [cart, setCart] = useState(useContext(ShoppingCartContext));
+
+  const handleAddToCart = () => {
+    const newItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: 1,
+    };
+    setCart([...cart, newItem]);
+  };
+
+  return (
+    <Container maxW="container.md" m="2rem">
+      <Center>
+        <Heading as="h1" size="2xl" mb="2rem">
+          {product.name}
+        </Heading>
+      </Center>
+      <GridItem colSpan={2} mb="2rem">
+        <Card maxW="xl">
+          <Flex>
+            <Box w="50%" p="2rem">
+              <img src={product.image} alt={product.name} />
+            </Box>
+            <Box w="50%" p="2rem">
+              <Text as="h2" fontSize="2xl" mb="1rem">
+                {product.name}
+              </Text>
+              <Text as="p" mb="1rem">
+                {product.description}
+              </Text>
+              <Text as="p" mb="2rem" fontWeight="bold" fontSize="xl">
+                Price: U$D {product.price}
+              </Text>
+              <Button
+                colorScheme="teal"
+                size="lg"
+                onClick={handleAddToCart}
+              >
+                Add to Cart
+              </Button>
+            </Box>
+          </Flex>
+        </Card>
+      </GridItem>
+    </Container>
+    
+  );
+};
+<SendOrder/>
+
+export default Cart;
+
+
+
+/*import {
     FormControl,
     FormLabel,
     Input,
@@ -18,26 +99,14 @@ import {
     Flex,
   } from "@chakra-ui/react";
   import { useState, useContext } from "react";
-  import { CartContext } from "../context/ShoppingCartContext"
+  import { ShoppingCartContext } from "../context/ShoppingCartContext"
   import SendOrder from "./SendOrder"
   
   const Cart = () => {
-    const [cart, setCart] = useContext(CartContext);
-    const [userName, setUserName] = useState("");
-    const [userEmail, setUserEmail] = useState("");
+    const [cart, setCart] = useContext(ShoppingCartContext);
+    
   
-    const handleSubmit = (e) => {
-      console.log(e);
-      e.preventDefault();
-      console.log(userName);
-      console.log(userEmail);
-      alert("Formulario enviado");
-    };
-  
-    const deleteId = cart.map((item) => {
-      return item.id;
-    });
-  
+    
     return (
       <>
         <Center bg="#D6EAF8" h="100px" color="black">
@@ -65,37 +134,17 @@ import {
                     colorScheme="red"
                     onClick={() => console.log("Eliminando")}
                   >
-                    Delete from cart
+                    Borrar del Carrito
                   </Button>
                 </CardFooter>
               </Card>
             </Container>
           );
         })}
-        <Container className="cart-container">
-          <FormControl onSubmit={handleSubmit}>
-            <Box>
-              <FormLabel>Your name</FormLabel>
-              <Input type="text" onChange={(e) => setUserName(e.target.value)} />
-              <FormLabel>Email address</FormLabel>
-              <Input
-                type="email"
-                onChange={(e) => setUserEmail(e.target.value)}
-              />
-              <FormHelperText>We'll never share your email.</FormHelperText>
-            </Box>
-            <FormLabel>What do you want to tell us?</FormLabel>
-            <Textarea></Textarea>
-            <Box className="btn-send">
-              <Button type="submit" colorScheme="teal" variant="outline">
-                Send information
-              </Button>
-            </Box>
-          </FormControl>
-        </Container>
+      <SendOrder/>
       </>
     );
   };
   
   export default Cart;
-  
+ */ 
